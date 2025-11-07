@@ -14,6 +14,6 @@ public class Serialization implements Serializable {
         System.out.println();
         System.out.println("3.序列化中需要注意的是需要推荐手动生成序列号uid，即SerialVersionUID。这个变量不会被序列化，但是在反序列化时会进行版本检查测试其兼容性。若匹配不上，则系统会抛出invalidClassException错误。");
         System.out.println();
-        System.out.println("4.如果类中有不想序列化的字段，则可以使用transient修饰符，至于注意事项在使用的时候再看。");
+        System.out.println("4.如果类中有不想序列化的字段，则可以使用transient修饰符，至于其注意事项在使用的时候再看。");
     }
 }
