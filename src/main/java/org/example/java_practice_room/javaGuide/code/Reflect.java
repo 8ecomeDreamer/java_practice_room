@@ -90,9 +90,9 @@ public class Reflect {
         System.out.println("2.在获取具体类之后，可以使用newInstance()创建实例。后续反射基于这个对象实例进行。");
         System.out.println("3.在反射中可以获取具体的属性、方法。其中，getDeclaredMethod()获取所有方法，其类型是Method[]（也可以使用getDeclareMethod获取单个方法）。getDeclaredField()可以获取所有属性，其类型是Field。");
         System.out.println("4.invoke(Object, args)是反射的关键,它接受两个参数，被反射的对象以及需要传递的参数");
-        System.out.println("5.使用反射的话，要了解伴随着它使用的异常，如NoSuchClassException等");
-        System.out.println("6.由于我是封装了一个方法进行反射，然后在main()里调用，这就出现了调用链的概念，即需要一直沿着这个链抛出异常。（当然也可以直接用try...catch操作）");
-        System.out.println("7.调用链的概念：");
-        System.out.println("8.解释一下这里出现的各种异常：");
+        System.out.println("5.使用反射的话，要了解伴随着它使用的异常，如ClassNotFoundException等");
+        System.out.println("6.由于我是封装了一个方法进行反射，然后在main()里调用，这就出现了异常传播概念的概念，即需要一直沿着这个链抛出异常。（当然也可以直接用try...catch操作）");
+        System.out.println("7.异常传播概念：异常需要通过逐级传播或者try..catch处理");
+        System.out.println("8.解释一下这里出现的各种异常：ClassNotFoundException(找不到具体的类)、InstantiationException(创建实例报错、可能是构造函数或抽象类报错)、IllegalAccessException(类中有私有对象，而没有设置setAccessible(true)导致)、NoSuchFieldException(没有这个字段)、NoSuchMethodException(没有这个方法)、InvocationTargetException(反射异常)");
     }
 }
