@@ -48,9 +48,7 @@ public class Reflect {
 
         // 1.通过Class.forName()获取Class对象，替代的方法还有其他三种：对象实例的getClass()方法、xxxClassLoader的loadClass()方法、知道具体类名的.class属性
         Class<?> targetClass = Class.forName("org.example.java_practice_room.javaGuide.code.Reflect$customReflectedClass");
-        System.out.println("targetClass的名字是：" + targetClass.getName());
         customReflectedClass targetObject = (customReflectedClass) targetClass.newInstance();
-        System.out.println("targetClass的名字是：" + targetObject);
 
         // 2.在得到类之后通过getDeclaredMethods()获取所有的方法
         Method[] methods = targetClass.getDeclaredMethods();
@@ -58,6 +56,7 @@ public class Reflect {
         for(Method method: methods) {
             System.out.printf("\t" + method.getName());
         }
+        System.out.println();
 
         // 3.调用方法并获取指定参数
         Method publicMethod = targetClass.getDeclaredMethod("publicMethod", String.class);
@@ -68,12 +67,8 @@ public class Reflect {
         field.setAccessible(true);
         field.set(targetObject, "Jim");
 
-//        Method privateMethod = targetClass.getDeclaredMethod("privateMethod", String.class);
-//        privateMethod.invoke(targetObject, "Jim");
-//        Field field2 = targetClass.getDeclaredField("target");
-//        //为了调用private方法我们取消安全检查
-//        field2.setAccessible(true);
-//        field2.set(targetObject, "Jim");
+        Method privateMethod = targetClass.getDeclaredMethod("privateMethod");
+        privateMethod.invoke(targetObject);
     }
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
